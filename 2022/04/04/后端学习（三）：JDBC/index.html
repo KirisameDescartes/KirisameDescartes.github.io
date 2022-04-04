@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>后端学习（三）：JDBC | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="三、JDBC（一）基本概念：JDBC中定义了一系列操作所有关系型数据库的规则（接口），由各个公司来完成实现类（数据库驱动）可以使用JDBC来变成，但实际上执行的代码是数据库驱动 （二）配置与基本使用方式  下载并导入jar包到项目最好创建一个libs文件夹（目录）并导入，之后需要添加为库（add as libiary) 注册驱动实际上为将类加载进内存，自动执行了一次静态代码块中的方法1Class.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="后端学习（三）：JDBC">
+<meta property="og:url" content="http://example.com/2022/04/04/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9AJDBC/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="三、JDBC（一）基本概念：JDBC中定义了一系列操作所有关系型数据库的规则（接口），由各个公司来完成实现类（数据库驱动）可以使用JDBC来变成，但实际上执行的代码是数据库驱动 （二）配置与基本使用方式  下载并导入jar包到项目最好创建一个libs文件夹（目录）并导入，之后需要添加为库（add as libiary) 注册驱动实际上为将类加载进内存，自动执行了一次静态代码块中的方法1Class.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-04-04T07:33:38.542Z">
+<meta property="article:modified_time" content="2022-04-04T07:50:44.902Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-后端学习（三）：JDBC" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/04/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9AJDBC/" class="article-date">
+  <time class="dt-published" datetime="2022-04-04T07:33:38.542Z" itemprop="datePublished">2022-04-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      后端学习（三）：JDBC
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>三、JDBC<br>（一）基本概念：JDBC中定义了一系列操作所有关系型数据库的规则（接口），由各个公司来完成实现类（数据库驱动）<br>可以使用JDBC来变成，但实际上执行的代码是数据库驱动</p>
+<p>（二）配置与基本使用方式</p>
+<ol>
+<li>下载并导入jar包到项目<br>最好创建一个libs文件夹（目录）并导入，之后需要添加为库（add as libiary)</li>
+<li>注册驱动<br>实际上为将类加载进内存，自动执行了一次静态代码块中的方法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>);</span><br></pre></td></tr></table></figure></li>
+<li>获取数据库的链接对象<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Connection conn=DriverManager.getConnection(<span class="string">&quot;jdbc:mysql://localhost:3306/test&quot;</span>,<span class="string">&quot;root&quot;</span>,<span class="string">&quot;password&quot;</span>);</span><br><span class="line"><span class="comment">//ip地址（域名），端口号，数据库，用户名，密码</span></span><br></pre></td></tr></table></figure>
+如果连接的是本机的服务器，且端口号为默认，则可以不写ip和端口号</li>
+<li>定义sql语句<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String sql=<span class="string">&quot; &quot;</span>;</span><br></pre></td></tr></table></figure></li>
+<li>获取执行SQL语句的对象(statement)<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Statement statement=conn.createStatement();</span><br></pre></td></tr></table></figure></li>
+<li>执行sql，接收返回结果<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> temp=statement.executeUpdate(sql);</span><br></pre></td></tr></table></figure></li>
+<li>处理结果<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.pirinln(temp);</span><br></pre></td></tr></table></figure></li>
+<li>释放资源<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">statement.close();</span><br><span class="line">conn.close();</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>(三) 对象</p>
+<ol>
+<li>DriverManager（驱动管理对象）功能：注册驱动；获取数据库连接</li>
+<li>Connection（数据库连接对象）功能：获取执行sql的对象；管理事务<br>(1) Statement<br>&lt;1&gt; 用途：执行sql的对象<br>&lt;2&gt; 分类<br>① boolen execute(String sql); 可以执行任意的sql<br>② int executeUpdate(String sql); 执行DDL和DML语句，返回值为语句影响的行数<br>③ ResultSet executeQuery(String sql); 执行DQL语句<br>&lt;3&gt; 结果集（ResultSet）<br>A. 概念：可以看做保存了一张结果表格；也是一种资源，代码结尾需要写关闭语句<br>B. 方法<br>① next(); 光标向下移动一行。默认在第一行数据之上，所以读取数据前需要先使用<br>可以返回一个boolean类型的值：如果移动后指向的不是最后一行，则返回true；如果是，则返回false<br>② getInt();等 获取数据，参数可以传列的编号（从1开始）或者名称<br>综上，获取时通常使用while语句</li>
+</ol>
+<p>(四) JDBC工具类</p>
+<ol>
+<li>使用目的：简化书写</li>
+<li>使用方法<br>(1) 辨别重复方法<br>(2) 将重复方法写入工具类<br>设置为静态方法以方便调用<br>其中，在设置连接时应使用配置文件方法，以便在不传递参数时也能保证工具类的通用性<br>并且，在读取配置文件时使用静态代码块，确保配置文件只在类第一次运行时被读取，即只读取一次<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//util文件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JDBCUtils</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String url;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String user;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String password;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String driver;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span></span><br><span class="line">    &#123;</span><br><span class="line">        properties pro=<span class="keyword">new</span> <span class="title class_">properties</span>();</span><br><span class="line">        ClassLoader classloader=JDBCUtils.class.getClassLoader();</span><br><span class="line">        URL res=classloader.getResource(<span class="string">&quot;相对文件路径&quot;</span>);</span><br><span class="line">        String path=res.getPath();<span class="comment">//相对路径转绝对路径</span></span><br><span class="line">        pro.load(<span class="keyword">new</span> <span class="title class_">FileReader</span>(path));</span><br><span class="line">        url=getProperty(<span class="string">&quot;url&quot;</span>);</span><br><span class="line">        user=getProperty(<span class="string">&quot;user&quot;</span>);</span><br><span class="line">        password=getProperty(<span class="string">&quot;password&quot;</span>);</span><br><span class="line">        driver=getProperty(<span class="string">&quot;driver&quot;</span>);</span><br><span class="line">        Class.forName(driver);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title function_">getConnection</span><span class="params">()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> DriverManager.getConnection(url,user,password);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">close</span><span class="params">(Statement st,Connection con)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(st!=<span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            st.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(con!=<span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            con.close();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">close</span><span class="params">(ResultSet rs,Statement st,Connection con)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(rs!=<span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            rs.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(st!=<span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            st.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(con!=<span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            con.close();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/04/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9AJDBC/" data-id="cl1kekw6t0001w0uygmkmfva9" data-title="后端学习（三）：JDBC" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/04/04/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">后端学习（二）：数据库</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/04/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9AJDBC/">后端学习（三）：JDBC</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/04/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93/">后端学习（二）：数据库</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/04/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%89%8D%E7%BD%AE%E5%86%85%E5%AE%B9/">后端学习（一）：前置内容</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>后端学习（一）：前置内容 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一、前置内容（一）JUnit  测试种类：黑盒和白盒 测试时使用的函数：assertEqual等  （二）反射  概念：将类的组成部分封装为其他对象 java代码的阶段：类文件（源代码）-&gt;字节码文件-&gt;Class类对象-&gt;类的对象 好处：(1) 可以在运行过程中操作对象，应用于代码提示(2) 可以解耦，提高程序可扩展性 获取Class对象的3种方式（1）Class.forNam">
+<meta property="og:type" content="article">
+<meta property="og:title" content="后端学习（一）：前置内容">
+<meta property="og:url" content="http://example.com/2022/04/04/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%89%8D%E7%BD%AE%E5%86%85%E5%AE%B9/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、前置内容（一）JUnit  测试种类：黑盒和白盒 测试时使用的函数：assertEqual等  （二）反射  概念：将类的组成部分封装为其他对象 java代码的阶段：类文件（源代码）-&gt;字节码文件-&gt;Class类对象-&gt;类的对象 好处：(1) 可以在运行过程中操作对象，应用于代码提示(2) 可以解耦，提高程序可扩展性 获取Class对象的3种方式（1）Class.forNam">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-04-04T07:33:38.525Z">
+<meta property="article:modified_time" content="2022-04-04T07:49:53.566Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-后端学习（一）：前置内容" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/04/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%89%8D%E7%BD%AE%E5%86%85%E5%AE%B9/" class="article-date">
+  <time class="dt-published" datetime="2022-04-04T07:33:38.525Z" itemprop="datePublished">2022-04-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      后端学习（一）：前置内容
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一、前置内容<br>（一）JUnit</p>
+<ol>
+<li>测试种类：黑盒和白盒</li>
+<li>测试时使用的函数：assertEqual等</li>
+</ol>
+<p>（二）反射</p>
+<ol>
+<li>概念：将类的组成部分封装为其他对象</li>
+<li>java代码的阶段：类文件（源代码）-&gt;字节码文件-&gt;Class类对象-&gt;类的对象</li>
+<li>好处：(1) 可以在运行过程中操作对象，应用于代码提示<br>(2) 可以解耦，提高程序可扩展性</li>
+<li>获取Class对象的3种方式<br>（1）Class.forName()获取全类名。因为传导字符串，多用于配置文件<br>（2）类名.Class，通过类名属性获取。多用于参数传递<br>（3）对象.getClass()</li>
+<li>使用Class对象：功能以获取为主要<br>（1）获取变量<br>Field[] 类名.getFields() 只能获取得到public变量<br>Field[] 类名.getDeclaredFields() 获取所有变量<br>Field 类名.getField(“ “) 获取指定名称的public变量<br>Field 类名.getDeclaredField(“ “) 同样不考虑修饰符<br>field.get(类的对象) 间接获取对象中的值，使用Object value（一个值）来接收<br>field.set(类的对象，值) 间接给对象中的成员变量赋值<br>field.setAccessible(true) 暴力反射，可以使用get()获取到私有变量<br>（2）获取构造函数<br>Construtor 类名.getConstructor(int.class等) 获取含有特定参数的构造函数<br>constructor.newInstance(赋值参数) 间接给对象赋值，使用Object person（一个对象）来接收<br>personClass.newInstance() 直接使用Class对象，间接给类的对象赋值<br>（3）获取方法<br>Method 类名.getMethod(“方法名”,参数类型.class) 获取一个方法<br>method.invoke(对象名,参数值) 间接调用方法<br>method.getName() 获取方法名</li>
+<li>反射的应用：在不改变代码的前提下，创建任意类的对象，并执行方法<br>(1) 实现所需：配置文件；反射<br>(2) 步骤<br>① 将需要创建对象的全类名和需要执行的方法定义在配置文件中<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//properties文件</span></span><br><span class="line">classname=全类名</span><br><span class="line">methodname=方法名</span><br></pre></td></tr></table></figure>
+② 在程序中加载读取配置文件<br>A. 创建properties对象<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Reflect文件（下同）</span></span><br><span class="line">properties pro=<span class="keyword">new</span> <span class="title class_">properties</span>();</span><br></pre></td></tr></table></figure>
+B. 加载配置文件，转化为一个集合<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ClassLoader classloader=ReflectTest.Class.getClassloader();</span><br><span class="line">InputStream is=classloader.getResourceAsStream(<span class="string">&quot;文件名&quot;</span>);</span><br><span class="line">pro.load(is);</span><br></pre></td></tr></table></figure>
+C. 获取配置文件中定义的数据<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String className=pro.getPerproty(<span class="string">&quot;classname&quot;</span>);</span><br><span class="line">String methodName=pro.getMethod(<span class="string">&quot;methodname&quot;</span>);</span><br></pre></td></tr></table></figure>
+③ 使用反射技术来加载文件进内存<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class cls=Class.forName(className);</span><br></pre></td></tr></table></figure>
+④ 创建对象并执行方法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object obj=cls.newInstance();</span><br><span class="line">Method method=cls.getMethod(methodName);</span><br></pre></td></tr></table></figure>
+⑤ 执行方法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">method.invoke(obj);</span><br></pre></td></tr></table></figure>
+这种方法应用时改的是配置文件而不是代码，避免了修改复杂代码后的测试步骤</li>
+</ol>
+<p>（三）注解</p>
+<ol>
+<li>概念：给计算机看的注释</li>
+<li>特征：@+注解名称</li>
+<li>作用分类<br>(1) 编写文档：通过代码里标识的注解生成文档<br>(2) 代码分析：通过代码里标识的注解对代码进行分析<br>(3) 编译检查：通过代码里标识的注解让编译器能够实现基本的编译检查</li>
+<li>内置注解<br>(1) Override:检测被该注解标注的方法是否继承自父类<br>(2) Deprecated：表示已过时<br>(3) SuppressWarnings(“all”)：压制所有警告</li>
+<li>自定义注解<br>(1) 格式：元注解 + public @interface 注解名称{属性列表}<br>(2) 本质：注解本质上是一个接口，继承java.lang.annotaton.Annotation()接口<br>(3) 属性：接口中可以定义的抽象成员方法<br>要求：①属性的返回值类型：基本数据类型，String，枚举，注解，以上类型的数组<br>②在使用时需要给属性赋值：MyAnno(age&#x3D;12,value&#x3D;12),MyAnno(12)<br>ps：如果定义属性时，使用default关键字给属性默认初始化赋值，则使用注解时，可以不进行属性的赋值<br>(4) 元注解：用于描述注解的注解<br>类型：<br>① @Target：描述注解作用的位置<br>@Target(value&#x3D;{ElementType.TYPE}) 表示注解只作用于类上<br>.Method 作用于方法上<br>.Field 作用于成员变量上<br>② @Retention：描述注解被保留的阶段<br>@Retention(RetentionPolicy.SOURCE) 注解作用于源代码<br>.CLASS 注解作用于类时<br>.RUNTIME 被描述的注解会保留到class文件中，并被JVM（java虚拟机）读取到<br>③ @Docmented：描述注解是否被抽取到Api文档中<br>④ @Inherited：描述注解是否被子类继承</li>
+<li>解析注解（在程序中获取属性值）<br>(1) 案例：用注解来替换反射案例中的配置文件<br>(2) 过程<br>&lt;1&gt; 定义注解Pro<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//pro文件</span></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.TYPE&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@iterface</span> Pro</span><br><span class="line">&#123;</span><br><span class="line">    String <span class="title function_">className</span><span class="params">()</span>;</span><br><span class="line">    String <span class="title function_">methodName</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+&lt;2&gt; 解析注解<br>① 获取该类的字节码文件对象<br>② 获取注解对象。在这个过程中，生成了一个注解的子类来覆写方法，可以return属性中给出的值<br>③ 调用注解中定义的抽象方法，获取返回值<br>后续内容与反射案例第③步及以后的相同<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ReflectTest文件</span></span><br><span class="line"><span class="meta">@Pro(className=&quot; &quot;,methodName=&quot; &quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ReflectTest</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] Args)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Class&lt;ReflectTest&gt; reflectTestClass=ReflectTest.class;</span><br><span class="line">        Pro an=reflectTestClass.getAnnotation(Pro.class);</span><br><span class="line">        String str1=an.className();</span><br><span class="line">        String str2=an.methodName();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/04/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%89%8D%E7%BD%AE%E5%86%85%E5%AE%B9/" data-id="cl1kekw6j0000w0uy550yf18i" data-title="后端学习（一）：前置内容" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/04/04/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          后端学习（二）：数据库
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/04/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9AJDBC/">后端学习（三）：JDBC</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/04/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93/">后端学习（二）：数据库</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/04/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%89%8D%E7%BD%AE%E5%86%85%E5%AE%B9/">后端学习（一）：前置内容</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
