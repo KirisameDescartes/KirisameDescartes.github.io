@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>后端学习（五）：CSS | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="二、CSS（一）概念：层叠样式表。多个样式可以作用在同一个元素上 （二）好处1.功能强大2.解耦，将内容展示和样式控制分离，让分工协作更容易3.提高开发效率 （三）CSS的使用1.内联样式，在标签内使用style属性2.内部样式，在head内部定义style标签，内容就是CSS代码3.外部样式，定义CSS资源文件，在head内部定义link标签以上方式的作用范围越来越大 （四）基本语法选择器{">
+<meta property="og:type" content="article">
+<meta property="og:title" content="后端学习（五）：CSS">
+<meta property="og:url" content="http://example.com/2022/04/14/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%94%EF%BC%89%EF%BC%9ACSS/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="二、CSS（一）概念：层叠样式表。多个样式可以作用在同一个元素上 （二）好处1.功能强大2.解耦，将内容展示和样式控制分离，让分工协作更容易3.提高开发效率 （三）CSS的使用1.内联样式，在标签内使用style属性2.内部样式，在head内部定义style标签，内容就是CSS代码3.外部样式，定义CSS资源文件，在head内部定义link标签以上方式的作用范围越来越大 （四）基本语法选择器{">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-04-14T14:30:55.881Z">
+<meta property="article:modified_time" content="2022-04-14T14:33:46.757Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-后端学习（五）：CSS" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/14/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%94%EF%BC%89%EF%BC%9ACSS/" class="article-date">
+  <time class="dt-published" datetime="2022-04-14T14:30:55.881Z" itemprop="datePublished">2022-04-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      后端学习（五）：CSS
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>二、CSS<br>（一）概念：层叠样式表。多个样式可以作用在同一个元素上</p>
+<p>（二）好处<br>1.功能强大<br>2.解耦，将内容展示和样式控制分离，让分工协作更容易<br>3.提高开发效率</p>
+<p>（三）CSS的使用<br>1.内联样式，在标签内使用style属性<br>2.内部样式，在head内部定义style标签，内容就是CSS代码<br>3.外部样式，定义CSS资源文件，在head内部定义link标签<br>以上方式的作用范围越来越大</p>
+<p>（四）基本语法<br>选择器{<br>    属性名1：属性值1；<br>    属性名2：属性值2；<br>}<br>1.选择器：具有相似特征的元素<br>(1)基本选择器<br>1)id选择器：#id，建议id值唯一<br>2)元素选择器：div等<br>3)类选择器：选择具有相同class的元素，.class<br>id&gt;类&gt;元素<br>(2)扩展选择器<br>1)全选择：*<br>2)并集选择器<br>3)子选择器：选择器1 选择器2{}，筛选选择器1下的选择器2<br>4)父选择器：选择器1&gt;选择器2{}，筛选选择器2上的选择器1<br>5)属性选择器：元素名称[属性名&#x3D;属性值]{}<br>6)伪类选择器：元素：状态{}<br>2.属性<br>(1)字体、文本<br>font-size：字体大小<br>colot：颜色<br>text-align：对齐方式<br>line-height：行高<br>(2)尺寸<br>weight：宽度<br>height：高度<br>(3)边框<br>border：边框，复合属性<br>(4)背景<br>background，背景图片，使用url<br>(5)盒子模型<br>margin：外边距<br>padding：内边距，默认情况下内边距会影响盒子的大小，使用box-sizing:boder-box来固定大小</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/14/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%94%EF%BC%89%EF%BC%9ACSS/" data-id="cl1z3uuk40001rguydw2ea2p0" data-title="后端学习（五）：CSS" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/04/14/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%9AHTML/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          后端学习（四）：HTML
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/04/14/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%83%EF%BC%89Bootstrap/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">后端学习（七）：BootStrap</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/14/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%9AHTML/">后端学习（四）：HTML</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/14/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%94%EF%BC%89%EF%BC%9ACSS/">后端学习（五）：CSS</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/14/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%83%EF%BC%89Bootstrap/">后端学习（七）：BootStrap</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/14/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%85%AD%EF%BC%89%EF%BC%9AJavaScript/">后端学习（六）：JavaScript</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/04/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9AJDBC/">后端学习（三）：JDBC</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
